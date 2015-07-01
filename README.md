@@ -21,21 +21,21 @@
 
 
 		 public static void testExec()throws Exception{
-	   //PYAnalyzer支持参数，代表5中拼音模式，
-	    //jp所有简拼，如果有多音字的话
-	   //qp所有全拼，如果有多音字的话
-	   //jpone简拼中第一个，不管是否有多音字
-	  //qpone全拼中第一个，不管是否有多音字
-	  //all所有简拼+全拼去重后的集合
-	   PYAnalyzer p=new PYAnalyzer("jp");
-	  TokenStream ts = p.tokenStream("name","中国银行");
-	 CharTermAttribute term=ts.addAttribute(CharTermAttribute.class);
+	   	//PYAnalyzer支持参数，代表5中拼音模式，
+	    	//jp所有简拼，如果有多音字的话
+	   	//qp所有全拼，如果有多音字的话
+	   	//jpone简拼中第一个，不管是否有多音字
+	  	//qpone全拼中第一个，不管是否有多音字
+	  	//all所有简拼+全拼去重后的集合
+	   	PYAnalyzer p=new PYAnalyzer("jp");
+	  	TokenStream ts = p.tokenStream("name","中国银行");
+	 	CharTermAttribute term=ts.addAttribute(CharTermAttribute.class);
         	ts.reset();
-	 while(ts.incrementToken()){
-	     System.out.println(term.toString());
-	 }
-	 ts.end();
-	   ts.close();
+	 	while(ts.incrementToken()){
+	     	System.out.println(term.toString());
+	 	}
+	 	ts.end();
+	   	ts.close();
 		  }
 
 
